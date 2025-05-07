@@ -2,20 +2,19 @@
 using namespace std;
 typedef long long ll;
 const int N = 1e6 + 10;
-int n;
 int phi[N];
 int primes[N], cnt;
 bool st[N];
 
 void get_eulers(int x) {
   phi[1] = 1;
-  for (int i = 2; i <= n; i++) {
+  for (int i = 2; i <= x; i++) {
     if (!st[i]) {
       primes[cnt++] = i;
       phi[i] = i - 1; // 从phi定义出发：如果i是质数，那么1~i中有i-1个与i互质
     }
 
-    for (int j = 0; primes[j] <= n/i; j++) {
+    for (int j = 0; primes[j] <= x/i; j++) {
       int t = primes[j] * i;
       st[t] = true;
 
@@ -29,6 +28,7 @@ void get_eulers(int x) {
 }
 
 int main() {
+  int n;
   cin >> n;
 
   get_eulers(n);

@@ -12,9 +12,9 @@ int main() { // N=(p1^a1)*(p1^a2)*...*(pk^ak), 约数之和=(p1^0+...+p1^a1)+...
   while (n--) {
     int a;
     cin >> a;
-    for (int i=2; i<=a/i; i++)
+    for (int i = 2; i <= a/i; i++)
       if (a % i == 0)
-        while (a%i == 0) a /= i, primes[i]++;
+        while (a % i == 0) a /= i, primes[i]++;
     if (a > 1) primes[a]++;
   }
 
