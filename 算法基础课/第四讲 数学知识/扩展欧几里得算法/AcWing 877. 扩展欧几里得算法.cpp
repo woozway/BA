@@ -12,7 +12,7 @@ int exgcd(int a, int b, int &x, int &y) { // 在求gcd(a,b)的同时，找出一
   // x = y1, y = x1 - a/b * y1;
 
   int d = exgcd(b, a%b, y, x); // 如果把x1,y1改成y,x 则x=x, y=y-a/b*x
-  y -= a / b * x;
+  y -= a/b * x;
 
   return d;
 }
