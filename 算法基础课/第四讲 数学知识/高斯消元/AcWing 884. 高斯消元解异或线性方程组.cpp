@@ -2,11 +2,11 @@
 using namespace std;
 const int N = 110;
 int n;
-int a[N][N];
+bool a[N][N];
 
 int gauss() {
   int c, r;
-  for (c=0, r=0; c < n; c++) {
+  for (c = r = 0; c < n; c++) {
     int t = r;
     for (int i = r; i < n; i++)
       if (a[i][c])
@@ -31,8 +31,7 @@ int gauss() {
 
   for (int i = n-1; i >= 0; i--)
     for (int j = i+1; j < n; j++)
-      a[i][n] ^= a[i][j] * a[j][n];
-
+      a[i][n] ^= a[i][j] & a[j][n];
   return 0;
 }
 
