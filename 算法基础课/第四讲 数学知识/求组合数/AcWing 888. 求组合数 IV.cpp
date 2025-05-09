@@ -27,12 +27,8 @@ int get(int n, int p) {
 vector<int> mul(vector<int> a, int b) {
   vector<int> c;
   int t = 0;
-  for (int i = 0; i < a.size(); i++) {
-    t += a[i] * b;
-    c.push_back(t % 10);
-    t /= 10;
-  }
-  while (t) {
+  for (int i = 0; i<a.size() || t; i++) {
+    if (i < a.size()) t += a[i] * b;
     c.push_back(t % 10);
     t /= 10;
   }
@@ -55,8 +51,7 @@ int main() {
     for (int j = 0; j < sum[i]; j++)
       res = mul(res, primes[i]);
 
-  for (int i=res.size()-1; i>=0; i--) printf("%d", res[i]);
+  for (int i = res.size()-1; i >= 0; i--) printf("%d", res[i]);
   puts("");
-
   return 0;
 }

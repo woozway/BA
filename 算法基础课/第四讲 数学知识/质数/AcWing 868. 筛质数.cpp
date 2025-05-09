@@ -29,6 +29,5 @@ int main() {
   get_primes();
 
   cout << cnt << endl;
-
   return 0;
 }

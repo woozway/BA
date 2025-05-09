@@ -28,6 +28,5 @@ int main() {
     exgcd(a, b, x, y);
     printf("%d %d\n", x, y);
   }
-
   return 0;
 }

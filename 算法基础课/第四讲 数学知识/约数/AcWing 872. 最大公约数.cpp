@@ -8,12 +8,10 @@ int gcd(int a, int b) { // d = gcd(a, b), => d|a, d|b, 因为r = a - q*b，所�
 int main() {
   int n;
   cin >> n;
-
   while (n--) {
     int a, b;
     scanf("%d%d", &a, &b);
     printf("%d\n", gcd(a, b));
   }
-
   return 0;
 }

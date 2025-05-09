@@ -15,12 +15,10 @@ void divide(int x) { // 枚举到i时，x中已经没有2~i-1中所有的质因�
 int main() {
   int n;
   cin >> n;
-
   while (n--) {
     int a;
     cin >> a;
     divide(a);
   }
-
   return 0;
 }

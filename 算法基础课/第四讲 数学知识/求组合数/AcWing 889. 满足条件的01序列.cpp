@@ -25,6 +25,5 @@ int main() {
 
   res = (ll)res * qmi(n+1, mod-2, mod) % mod;
   cout << res << endl;
-
   return 0;
 }

@@ -21,7 +21,7 @@ int main() {
     infact[i] = (ll)infact[i-1] * qmi(i, mod-2, mod) % mod;
   }
 
-  scanf("%d", &n);
+  cin >> n;
   while (n--) {
     int a, b;
     scanf("%d%d", &a, &b);

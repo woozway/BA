@@ -37,7 +37,6 @@ int gauss() {
 
 int main() {
   cin >> n;
-
   for (int i = 0; i < n; i++)
     for (int j = 0; j < n+1; j++)
       cin >> a[i][j];
@@ -46,6 +45,5 @@ int main() {
   if (t == 2) puts("No solution");
   else if (t == 1) puts("Multiple sets of solutions");
   else for (int i = 0; i < n; i++) cout << a[i][n] << endl;
-
   return 0;
 }

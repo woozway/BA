@@ -26,6 +26,5 @@ int main() {
     if (b % d) puts("impossible"); // b不是d的倍数，无解
     else printf("%d\n", (ll)x * (b/d) % m); // 有解，等式两边分别放大b/d倍
   }
-
   return 0;
 }

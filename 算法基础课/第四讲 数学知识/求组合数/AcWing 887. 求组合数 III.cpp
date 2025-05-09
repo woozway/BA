@@ -38,6 +38,5 @@ int main() {
     cin >> a >> b >> p;
     cout << lucas(a, b, p) << endl;
   }
-
   return 0;
 }

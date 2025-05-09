@@ -48,6 +48,5 @@ int main() {
   if (t == 2) puts("No solution");
   else if (t == 1) puts("Infinite group solutions");
   else for (int i = 0; i < n; i++) printf("%.2lf\n", a[i][n]);
-
   return 0;
 }

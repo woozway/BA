@@ -36,6 +36,5 @@ int main() {
   ll res = 0;
   for (int i = 1; i <= n; i++) res += phi[i];
   cout << res << endl;
-
   return 0;
 }

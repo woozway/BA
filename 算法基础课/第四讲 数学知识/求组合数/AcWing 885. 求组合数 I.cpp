@@ -18,6 +18,5 @@ int main() {
     scanf("%d%d", &a, &b);
     printf("%d\n", c[a][b]);
   }
-
   return 0;
 }

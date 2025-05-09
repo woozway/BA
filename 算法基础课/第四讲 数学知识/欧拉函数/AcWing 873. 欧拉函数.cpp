@@ -22,6 +22,5 @@ int main() {
     cin >> a;
     cout << phi(a) << endl;
   }
-
   return 0;
 }

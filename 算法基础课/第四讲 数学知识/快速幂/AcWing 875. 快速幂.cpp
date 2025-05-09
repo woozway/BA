@@ -21,6 +21,5 @@ int main() {
     scanf("%d%d%d", &a, &b, &p);
     printf("%lld\n", qmi(a, b, p));
   }
-
   return 0;
 }

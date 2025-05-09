@@ -8,7 +8,6 @@ unordered_map<int, int> primes;
 int main() { // N=(p1^a1)*(p1^a2)*...*(pk^ak), 约数之和=(p1^0+...+p1^a1)+...+(pk^0+...+pk^ak
   int n;
   cin >> n;
-
   while (n--) {
     int a;
     cin >> a;
@@ -27,6 +26,5 @@ int main() { // N=(p1^a1)*(p1^a2)*...*(pk^ak), 约数之和=(p1^0+...+p1^a1)+...
     res = res * t % mod;
   }
   cout << res << endl;
-
   return 0;
 }

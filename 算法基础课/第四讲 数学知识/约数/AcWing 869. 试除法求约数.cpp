@@ -26,6 +26,5 @@ int main() {
     for (auto t: res) cout << t << ' ';
     cout << endl;
   }
-
   return 0;
 }

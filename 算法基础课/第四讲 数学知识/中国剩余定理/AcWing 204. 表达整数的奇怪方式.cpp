@@ -29,7 +29,6 @@ int main() { // 两两合并x=k1*a1+m1, x=k2*a2+m2, ..., x=kn*an+mn
       has_answer = false;
       break;
     }
-
     // 求得一个解k1,k2后，通解为：k1 + k*a2/d, k2 + k*a1/d (k为任意整数,这里只用到k1的通解)
     // x = k1*a1 + m1 = (k1+k*a2/d)*a1 + m1 = k1*a1+m1 + k*(a1*a2/d) = k*[a,b] + k1*a1+m1 = k*a + m
     k1 *= (m2 - m1) / d; // 等式两边扩大(m2-m1)/d倍才是解k1
@@ -41,6 +40,5 @@ int main() { // 两两合并x=k1*a1+m1, x=k2*a2+m2, ..., x=kn*an+mn
 
   if (has_answer) cout << (m1%a1 + a1) % a1 << endl; // c++中语法关系，这里求的是m1模a1在数学意义上的余数
   else puts("-1");
-
   return 0;
 }

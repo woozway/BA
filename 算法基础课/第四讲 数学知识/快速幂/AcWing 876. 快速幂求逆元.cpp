@@ -32,6 +32,5 @@ int main() {
     if (a % p) printf("%lld\n", res); // 因为m是质数，a,m互质的条件是a%m != 0，即a不是m的倍数
     else printf("impossible\n");
   }
-
   return 0;
 }
