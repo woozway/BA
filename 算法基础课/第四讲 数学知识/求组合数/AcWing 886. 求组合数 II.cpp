@@ -1,11 +1,11 @@
 #include <iostream>
 using namespace std;
 typedef long long ll;
-const int N = 100010, mod = 1e9 + 7;
-int n, fact[N], infact[N];
+const int N = 1e5 + 10, mod = 1e9 + 7;
+int fact[N], infact[N];
 
 int qmi(int a, int k, int p) {
-  int res = 1;
+  int res = 1 % p;
   while (k) {
     if (k & 1) res = (ll)res * a % p;
     a = (ll)a * a % p;
@@ -14,6 +14,7 @@ int qmi(int a, int k, int p) {
   return res;
 }
 
+// O(NlgN) 因为c[a][b] = a!/[(b-a)! * b!]，可以预处理阶乘fact和阶乘的逆infact
 int main() {
   fact[0] = infact[0] = 1;
   for (int i = 1; i < N; i++) {
@@ -21,7 +22,8 @@ int main() {
     infact[i] = (ll)infact[i-1] * qmi(i, mod-2, mod) % mod;
   }
 
-  cin >> n;
+  int n;
+  scanf("%d", &n);
   while (n--) {
     int a, b;
     scanf("%d%d", &a, &b);

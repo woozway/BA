@@ -11,7 +11,6 @@ struct Edge {
 void bellman_ford() { // O(nm)适合稠密图：可以处理负权边和判断是否存在负环；求k步内只能用bf
   memset(dist, 0x3f, sizeof dist);
   dist[1] = 0;
-
   while (k--) {
     memcpy(last, dist, sizeof last);
     for (int j = 0; j < m; j++) {
@@ -23,7 +22,6 @@ void bellman_ford() { // O(nm)适合稠密图：可以处理负权边和判断�
 
 int main() {
   cin >> n >> m >> k;
-
   for (int i = 0; i < m; i++) {
     int x, y, z;
     scanf("%d%d%d", &x, &y, &z);
@@ -34,6 +32,5 @@ int main() {
 
   if (dist[n] > 0x3f3f3f3f/2) puts("impossible"); // 因为正无穷的表示方式，在bf计算中会导致不同正无穷的值有差别，比如-100
   else printf("%d\n", dist[n]);
-
   return 0;
 }
