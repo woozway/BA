@@ -32,9 +32,11 @@ vector<int> mul(vector<int> a, int b) {
     c.push_back(t % 10);
     t /= 10;
   }
+  while (c.size()>1 && c.back()==0) c.pop_back();
   return c;
 }
 
+// c(a,b) = a!/[b! * (a-b)!], 在分子&分母上分解质因子，然后高精度乘
 int main() {
   int a, b;
   cin >> a >> b;
