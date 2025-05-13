@@ -24,14 +24,21 @@ int main() {
   // for (int i = 1; i <= n; i++)
   //   for (int j = 0; j <= m; j++)
   //     for (int k = 0; v[i]*k <= j; k++)
-  //       f[i][j] = max(f[i][j], f[i-1][j-v[i]*k] + w[i]*k);
+  //       f[i][j] = max(f[i][j], f[i-1][j - v[i]*k] + w[i]*k);
+  // cout << f[n][m] << endl;
+
+  // for (int i = 1; i <= n; i++)
+  //   for (int j = 0; j <= m; j++) {
+  //     f[i][j] = f[i-1][j];
+  //     if (j >= v[i]) f[i][j] = max(f[i][j], f[i][j - v[i]] + w[i]);
+  //   }
   // cout << f[n][m] << endl;
 
   // 优化后：和0/1背包的区别是j从小到大更新，因为由f[i,..]转移来而不是f[i-1,..]
   for (int i = 1; i <= n; i++)
     for (int j = v[i]; j <= m; j++)
       f[j] = max(f[j], f[j - v[i]] + w[i]);
-
   cout << f[m] << endl;
+
   return 0;
 }
