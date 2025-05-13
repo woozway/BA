@@ -14,13 +14,13 @@ int f[N];
 
 // f[i,j]   = Max(f[i-1,j], f[i-1,j-v] + w, f[i-1,j-2v] + 2w, ...)
 // f[i,j-v] = Max(          f[i-1,j-v],     f[i-1,j-2v] +  w, ...)
-// => f[i,j] = Max(f[i,j], f[i,j-v] + w)
+// => f[i,j] = Max(f[i-1,j], f[i,j-v] + w)
 int main() {
   int n, m;
   cin >> n >> m;
   for (int i = 1; i <= n; i++) cin >> v[i] >> w[i];
 
-  // // 朴素
+  // // 朴素TLE
   // for (int i = 1; i <= n; i++)
   //   for (int j = 0; j <= m; j++)
   //     for (int k = 0; v[i]*k <= j; k++)
