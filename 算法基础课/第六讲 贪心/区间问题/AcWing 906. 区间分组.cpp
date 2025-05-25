@@ -25,12 +25,17 @@ int main() {
     range[i] = {l, r};
   }
 
+  // 1. 将所有区间按左端点从小到大排序
+  // 2. 从前到后处理每个区间，判断能否将其放到某个已有组中：L[i] > Max_r
+  //    a. 如果不存在这样的组，则开新组然后将其放入
+  //    b. 如果存在，将其放入并更新当前组的Max_r
   sort(range, range + n);
 
   priority_queue<int, vector<int>, greater<int>> heap;
   for (int i = 0; i < n; i++) {
     auto r = range[i];
-    if (heap.empty() || heap.top() >= r.l) heap.push(r.r);
+    // 最小的已有组的右端点Max_r都大于L[i]，那么需要开新组
+    if (heap.empty() || heap.top()>=r.l) heap.push(r.r);
     else {
       heap.pop();
       heap.push(r.r);

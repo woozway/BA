@@ -12,17 +12,20 @@ struct Range {
 // 证明：假设目标值ans，按照贪心策略选择的点个数为cnt
 // 证 ans = cnt 即证：ans >= cnt && ans <= cnt
 //   1. 因为cnt是一个可行方案，而ans是所有可行方案中最小值，所以ans <= cnt
-//   2. 因为在极端情况下是会有cnt个两两相互无交集的区间，所以ans >= cnt, Q.E.D.
+//   2. 因为在极端情况下是会有cnt个两两相互无交集的区间，所以ans >= cnt, QED
 int main() {
   int n;
   scanf("%d", &n);
   for (int i = 0; i < n; i++) scanf("%d%d", &range[i].l, &range[i].r);
 
-  sort(range, range + n); // 每个区间按右端点从小到大排序
+  // 1. 将每个区间按右端点从小到大排序
+  // 2. 从前往后依次枚举每个区间
+  //    如果当前区间中已经包含点，则直接pass；否则选择当前区间的右端点
+  sort(range, range + n);
 
   int res = 0, ed = -2e9;
-  for (int i = 0; i < n; i++) // 从前往后依次枚举每个区间
-    if (range[i].l > ed) { // 若当前区间不覆盖上一区间右端点，则cnt+1，且选中新右端点
+  for (int i = 0; i < n; i++)
+    if (range[i].l > ed) {
       res++;
       ed = range[i].r;
     }

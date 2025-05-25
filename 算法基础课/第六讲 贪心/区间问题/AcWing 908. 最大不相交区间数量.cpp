@@ -19,6 +19,9 @@ int main() {
   scanf("%d", &n);
   for (int i = 0; i < n; i++) scanf("%d%d", &range[i].l, &range[i].r);
 
+  // 1. 将每个区间按右端点从小到大排序
+  // 2. 从前往后依次枚举每个区间
+  //    如果当前区间中已经包含点，则直接pass；否则选择当前区间的右端点
   sort(range, range + n);
 
   int res = 0, ed = -2e9;
