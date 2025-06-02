@@ -6,7 +6,7 @@ bool st[N]; // 记录i节点是否被访问过
 int n, res = N;
 
 void add(int a, int b) {
-  e[idx] = b, ne[idx] = h[a], h[a] = idx++;
+  e[idx] = b, ne[idx] = h[a], h[a] = idx ++ ;
 }
 
 int dfs(int u) { // 返回以u为根节点的总节点个数
@@ -30,15 +30,13 @@ int dfs(int u) { // 返回以u为根节点的总节点个数
 
 int main() {
   cin >> n;
-
-  for (int i = 0; i < n-1; i++) {
+  for (int i = 0; i < n - 1; i ++ ) {
     int a, b;
     scanf("%d%d", &a, &b);
     add(a, b), add(b, a);
   }
 
   dfs(1); // 从任意一个点开始dfs都行
-
   cout << res << endl;
 
   return 0;

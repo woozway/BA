@@ -5,7 +5,7 @@ int h[N], e[M], ne[M], idx = 1;
 int color[N];
 
 void add(int a, int b) {
-  e[idx] = b, ne[idx] = h[a], h[a] = idx++;
+  e[idx] = b, ne[idx] = h[a], h[a] = idx ++ ;
 }
 
 bool dfs(int u, int c) { // 染色法 O(n+m)
@@ -25,15 +25,14 @@ bool dfs(int u, int c) { // 染色法 O(n+m)
 int main() { // 一个图能被染色成二分图当且仅当图中没有奇数环
   int n, m;
   cin >> n >> m;
-
-  while (m--) {
+  while (m -- ) {
     int u, v;
     scanf("%d%d", &u, &v);
     add(u, v), add(v, u);
   }
 
   bool flag = true;
-  for (int i = 1; i <= n; i++) // 图中可能有多个连通块
+  for (int i = 1; i <= n; i ++ ) // 图中可能有多个连通块
     if (!color[i])
       if (!dfs(i, 1)) { // 染色1和2
         flag = false;
@@ -42,6 +41,5 @@ int main() { // 一个图能被染色成二分图当且仅当图中没有奇数�
 
   if (flag) puts("Yes");
   else puts("No");
-
   return 0;
 }

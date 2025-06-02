@@ -2,20 +2,20 @@
 #include <cstring>
 #include <queue>
 using namespace std;
-typedef pair<int, int> pii; // 需要(距离，下标)来存，这样每次取到距离最近O(1)
+typedef pair<int, int> PII; // 需要(距离，下标)来存，这样每次取到距离最近O(1)
 const int N = 1.5e5 + 10;
 int h[N], e[N], w[N], ne[N], idx = 1; // 稀疏图用邻接表；w[]存边权
 int dist[N];
 bool st[N];
 
 void add(int a, int b, int c) {
-  e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx++;
+  e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx ++ ;
 }
 
 void dijkstra() { // 稀疏图用邻接表 + 堆优化dijkstra
   memset(dist, 0x3f, sizeof dist);
   dist[1] = 0;
-  priority_queue<pii, vector<pii>, greater<pii>> q; // 小根堆
+  priority_queue<PII, vector<PII>, greater<PII>> q; // 小根堆
   q.push({0, 1});
 
   while (q.size()) {
@@ -38,8 +38,7 @@ void dijkstra() { // 稀疏图用邻接表 + 堆优化dijkstra
 int main() {
   int n, m;
   cin >> n >> m;
-
-  while (m--) {
+  while (m -- ) {
     int x, y, z;
     scanf("%d%d%d", &x, &y, &z);
     add(x, y, z); // 邻接表可以不用处理图的重边和自环
@@ -49,6 +48,5 @@ int main() {
 
   if (dist[n] == 0x3f3f3f3f) cout << -1 << endl;
   else cout << dist[n] << endl;
-
   return 0;
 }

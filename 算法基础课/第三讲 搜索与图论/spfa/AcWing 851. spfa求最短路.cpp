@@ -8,7 +8,7 @@ int dist[N];
 bool st[N]; // 用于记录是否已经在队列里
 
 void add(int a, int b, int c) {
-  e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx++;
+  e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx ++ ;
 }
 
 void spfa() { // 适合于稀疏图：优于bellman_ford，最差O(nm)，可处理负权边，可判断负环
@@ -24,7 +24,7 @@ void spfa() { // 适合于稀疏图：优于bellman_ford，最差O(nm)，可处�
 
     for (int i = h[t]; i; i = ne[i]) {
       int j = e[i];
-      if (dist[j] > dist[t] + w[i]) { // 这里不能写成if (!st[j] && dist[j]>dist[t]+w[i])
+      if (dist[j] > dist[t] + w[i]) { // 这里不能写成if (!st[j] && dist[j] > dist[t] + w[i])
         dist[j] = dist[t] + w[i];
         if (!st[j]) {
           q.push(j);
@@ -38,15 +38,13 @@ void spfa() { // 适合于稀疏图：优于bellman_ford，最差O(nm)，可处�
 int main() {
   int n, m;
   cin >> n >> m;
-
-  while (m--) {
+  while (m -- ) {
     int x, y, z;
     scanf("%d%d%d", &x, &y, &z);
     add(x, y, z);
   }
 
   spfa();
-
   if (dist[n] == 0x3f3f3f3f) puts("impossible");
   else printf("%d\n", dist[n]);
 

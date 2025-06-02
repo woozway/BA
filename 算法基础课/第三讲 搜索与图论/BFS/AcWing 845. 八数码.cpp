@@ -26,27 +26,26 @@ void bfs() {
     int distance = d[t];
     int p = t.find('x');
     int r = p / 3, c = p % 3; // p/3得x所在行，p%3得x所在列
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; i ++ ) {
       int x = r + dx[i], y = c + dy[i];
-      swap(t[x*3 + y], t[p]);
-      if (x>=0 && x<3 && y>=0 && y<3 && !d.count(t)) {
+      swap(t[x * 3 + y], t[p]);
+      if (x >= 0 && x < 3 && y >= 0 && y < 3 && !d.count(t)) {
         d[t] = distance + 1;
         q.push(t);
       }
-      swap(t[x*3 + y], t[p]); // 恢复现场
+      swap(t[x * 3 + y], t[p]); // 恢复现场
     }
   }
 }
 
 int main() {
   string s;
-  for (int i = 0; i < 9; i++) {
+  for (int i = 0; i < 9; i ++ ) {
     cin >> s;
     state += s;
   }
 
   bfs();
-
   cout << res << endl;
 
   return 0;

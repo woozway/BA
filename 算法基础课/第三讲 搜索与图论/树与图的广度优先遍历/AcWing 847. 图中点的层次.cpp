@@ -7,7 +7,7 @@ int h[N], e[N], ne[N], idx = 1;
 int d[N];
 
 void add(int a , int b) {
-  e[idx] = b, ne[idx] = h[a], h[a] = idx++;
+  e[idx] = b, ne[idx] = h[a], h[a] = idx ++ ;
 }
 
 void bfs() {
@@ -32,16 +32,13 @@ void bfs() {
 int main() {
   int n, m;
   cin >> n >> m;
-
-  while (m--) {
+  while (m -- ) {
     int a, b;
     scanf("%d%d", &a, &b);
     add(a, b);
   }
 
   bfs();
-
   cout << d[n] << endl;
-
   return 0;
 }

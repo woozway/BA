@@ -9,13 +9,13 @@ int dist[N], cnt[N]; // cnt[i]保存到达i节点有几条不同路径
 bool st[N];
 
 void add(int a, int b, int c) {
-  e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx++;
+  e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx ++ ;
 }
 
 bool spfa() { // 由于抽屉原理得：若cnt[i]>=n（即一条路径上遇到了n+1个点），7那么肯定存在负环
   queue<int> q; // 这里不再需要初始化dist了，因为dist不再记录最短路径，而只是为了跑cnt
 
-  for (int i = 1; i <= n; i++) { // 因为从某一特定点出发的线路不一定经过环，所以加入所有点
+  for (int i = 1; i <= n; i ++ ) { // 因为从某一特定点出发的线路不一定经过环，所以加入所有点
     q.push(i);
     st[i] = true; // 记录是否在队列里
   }
@@ -43,8 +43,7 @@ bool spfa() { // 由于抽屉原理得：若cnt[i]>=n（即一条路径上遇到
 
 int main() {
   cin >> n >> m;
-
-  for (int i = 0; i < m; i++) {
+  for (int i = 0; i < m; i ++ ) {
     int x, y, z;
     scanf("%d%d%d", &x, &y, &z);
     add(x, y, z);
@@ -52,6 +51,5 @@ int main() {
 
   if (spfa()) puts("Yes");
   else puts("No");
-
   return 0;
 }

@@ -7,25 +7,24 @@ int n;
 
 void dfs(int u) {
   if (u == n) {
-    for (int i = 0; i < n; i++) puts(g[i]);
+    for (int i = 0; i < n; i ++ ) puts(g[i]);
     puts("");
     return;
   }
-  for (int i = 0; i < n; i++)
-    if (!col[i] && !dg[u+i] && !adg[u-i+n]) { // 当前列，对角线，反对角线都不在攻击范围；这里不能用((u-i)%n+n)%n，会少计算斜边数
+  for (int i = 0; i < n; i ++ )
+    if (!col[i] && !dg[u + i] && !adg[u - i + n]) { // 当前列，对角线，反对角线都不在攻击范围；这里不能用((u-i)%n+n)%n，会少计算斜边数
       g[u][i] = 'Q';
-      col[i] = dg[u+i] = adg[u-i+n] = true;
+      col[i] = dg[u + i] = adg[u - i + n] = true;
       dfs(u + 1);
-      col[i] = dg[u+i] = adg[u-i+n] = false;
+      col[i] = dg[u + i] = adg[u - i + n] = false;
       g[u][i] = '.';
     }
 }
 
 int main() {
   cin >> n;
-
-  for (int i = 0; i < n; i++)
-    for (int j = 0; j < n; j++)
+  for (int i = 0; i < n; i ++ )
+    for (int j = 0; j < n; j ++ )
       g[i][j] = '.';
 
   dfs(0);
