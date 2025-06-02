@@ -15,7 +15,7 @@ struct Range {
 int main() {
   int st, ed, n;
   cin >> st >> ed >> n;
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i ++ ) {
     int l, r;
     scanf("%d%d", &l, &r);
     range[i] = {l, r};
@@ -28,11 +28,11 @@ int main() {
 
   int res = 0;
   bool success = false;
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i ++ ) {
     int j = i, r = -2e9;
-    while (j<n && range[j].l<=st) {
+    while (j < n && range[j].l <= st) {
       r = max(r, range[j].r);
-      j++;
+      j ++ ;
     }
 
     if (r < st) {
@@ -40,7 +40,7 @@ int main() {
       break;
     }
 
-    res++;
+    res ++ ;
     if (r >= ed) {
       success = true;
       break;

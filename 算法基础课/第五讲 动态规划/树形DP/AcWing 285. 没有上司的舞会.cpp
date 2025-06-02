@@ -8,7 +8,7 @@ int f[N][2];
 bool has_fa[N];
 
 void add(int a, int b) {
-  e[idx] = b, ne[idx] = h[a], h[a] = idx++;
+  e[idx] = b, ne[idx] = h[a], h[a] = idx ++ ;
 }
 
 // f[u,0]: 所有从以u为根的子树中选择，并且不选u这个点的方案
@@ -28,9 +28,9 @@ void dfs(int u) {
 int main() {
   int n;
   cin >> n;
-  for (int i = 1; i <= n; i++) scanf("%d", &happy[i]);
+  for (int i = 1; i <= n; i ++ ) scanf("%d", &happy[i]);
 
-  for (int i = 0; i < n-1; i++) {
+  for (int i = 0; i < n - 1; i ++ ) {
     int a, b;
     scanf("%d%d", &a, &b);
     add(b, a);
@@ -38,7 +38,7 @@ int main() {
   }
 
   int root = 1;
-  while (has_fa[root]) root++;
+  while (has_fa[root]) root ++ ;
 
   dfs(root);
 

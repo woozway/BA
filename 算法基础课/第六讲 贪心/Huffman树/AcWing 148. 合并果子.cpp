@@ -7,7 +7,7 @@ int main() {
   scanf("%d", &n);
 
   priority_queue<int, vector<int>, greater<int>> heap;
-  while (n--) {
+  while (n -- ) {
     int x;
     scanf("%d", &x);
     heap.push(x);

@@ -15,19 +15,19 @@ int main() {
   int n, m;
   cin >> n >> m;
 
-  for (int i = 1; i <= n; i++) cin >> v[i] >> w[i];
+  for (int i = 1; i <= n; i ++ ) cin >> v[i] >> w[i];
 
   // // 二维写法
-  // for (int i = 1; i <= n; i++)
-  //   for (int j = 0; j <= m; j++) {
-  //     f[i][j] = f[i-1][j];
-  //     if (j >= v[i]) f[i][j] = max(f[i][j], f[i-1][j-v[i]] + w[i]);
+  // for (int i = 1; i <= n; i ++ )
+  //   for (int j = 0; j <= m; j ++ ) {
+  //     f[i][j] = f[i - 1][j];
+  //     if (j >= v[i]) f[i][j] = max(f[i][j], f[i - 1][j - v[i]] + w[i]);
   //   }
   // cout << f[n][m] << endl;
 
   // 滚动数组优化：j从大到小更新，因为f[i][j]需要从f[i-1][j]转移来而不是f[i][j]
-  for (int i = 1; i <= n; i++)
-    for (int j = m; j >= v[i]; j--)
+  for (int i = 1; i <= n; i ++ )
+    for (int j = m; j >= v[i]; j -- )
       f[j] = max(f[j], f[j - v[i]] + w[i]);
 
   cout << f[m] << endl;

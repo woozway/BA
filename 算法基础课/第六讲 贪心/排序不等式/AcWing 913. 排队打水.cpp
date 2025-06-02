@@ -1,7 +1,7 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-typedef long long ll;
+typedef long long LL;
 const int N = 1e5 + 10;
 int n;
 int t[N];
@@ -14,13 +14,13 @@ int t[N];
 //   前-后：ti - ti+1 > 0，说明可以更优，与假设矛盾，得证
 int main() {
   scanf("%d", &n);
-  for (int i = 0; i < n; i++) scanf("%d", &t[i]);
+  for (int i = 0; i < n; i ++ ) scanf("%d", &t[i]);
 
   sort(t, t + n);
   reverse(t, t + n);
 
-  ll res = 0;
-  for (int i = 0; i < n; i++) res += t[i] * i;
+  LL res = 0;
+  for (int i = 0; i < n; i ++ ) res += t[i] * i;
 
   printf("%lld\n", res);
   return 0;

@@ -19,7 +19,7 @@ struct Range {
 int main() {
   int n;
   cin >> n;
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i ++ ) {
     int l, r;
     scanf("%d%d", &l, &r);
     range[i] = {l, r};
@@ -32,10 +32,10 @@ int main() {
   sort(range, range + n);
 
   priority_queue<int, vector<int>, greater<int>> heap;
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i ++ ) {
     auto r = range[i];
     // 最小的已有组的右端点Max_r都大于L[i]，那么需要开新组
-    if (heap.empty() || heap.top()>=r.l) heap.push(r.r);
+    if (heap.empty() || heap.top() >= r.l) heap.push(r.r);
     else {
       heap.pop();
       heap.push(r.r);

@@ -16,7 +16,7 @@ struct Range {
 int main() {
   int n;
   scanf("%d", &n);
-  for (int i = 0; i < n; i++) scanf("%d%d", &range[i].l, &range[i].r);
+  for (int i = 0; i < n; i ++ ) scanf("%d%d", &range[i].l, &range[i].r);
 
   // 1. 将每个区间按右端点从小到大排序
   // 2. 从前往后依次枚举每个区间
@@ -24,9 +24,9 @@ int main() {
   sort(range, range + n);
 
   int res = 0, ed = -2e9;
-  for (int i = 0; i < n; i++)
+  for (int i = 0; i < n; i ++ )
     if (range[i].l > ed) {
-      res++;
+      res ++ ;
       ed = range[i].r;
     }
 
