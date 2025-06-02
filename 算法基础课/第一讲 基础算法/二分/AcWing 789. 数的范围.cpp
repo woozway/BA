@@ -6,15 +6,15 @@ int a[N];
 int main() {
   int n, q;
   cin >> n >> q;
-  for (int i = 0; i < n; i++) scanf("%d", &a[i]);
+  for (int i = 0; i < n; i ++ ) scanf("%d", &a[i]);
 
-  while (q--) {
+  while (q -- ) {
     int k;
     cin >> k;
 
-    int l = 0, r = n-1;
+    int l = 0, r = n - 1;
     while (l < r) {
-      int mid = l+r >> 1;
+      int mid = l + r >> 1;
       if (a[mid] >= k) r = mid;
       else l = mid + 1;
     }
@@ -23,9 +23,9 @@ int main() {
     else {
       cout << l << ' ';
 
-      l = 0, r = n-1;
+      l = 0, r = n - 1;
       while (l < r) {
-        int mid = l+r+1 >> 1;
+        int mid = l + r + 1 >> 1;
         if (a[mid] <= k) l = mid; // 这种更新时需要回过头来给l+r+1
         else r = mid - 1;
       }
