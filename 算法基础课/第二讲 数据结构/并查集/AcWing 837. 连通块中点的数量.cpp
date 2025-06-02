@@ -9,18 +9,16 @@ int find(int x) {
 }
 
 int main() {
-  ios::sync_with_stdio(false), cin.tie(0);
-
   int n, m;
   cin >> n >> m;
-  for (int i = 1; i <= n; i++) {
+  for (int i = 1; i <= n; i ++ ) {
     p[i] = i;
     cnt[i] = 1;
   }
 
   string op;
   int a, b;
-  while (m--) {
+  while (m -- ) {
     cin >> op;
     if (op == "C") {
       cin >> a >> b;
@@ -32,13 +30,12 @@ int main() {
     }
     else if (op == "Q1") {
       cin >> a >> b;
-      cout << (find(a)==find(b) ? "Yes" : "No") << endl;
+      cout << (find(a) == find(b) ? "Yes" : "No") << endl;
     }
     else {
       cin >> a;
       cout << cnt[find(a)] << endl;
     }
   }
-
   return 0;
 }

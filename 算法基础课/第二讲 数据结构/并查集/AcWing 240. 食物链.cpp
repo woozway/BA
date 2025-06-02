@@ -16,17 +16,18 @@ int main() { // 按照d[i]%3来判断谁吃谁；如果x,y在同一集合，且d
   int n, k;
   cin >> n >> k;
 
-  for (int i = 1; i <= n; i++) p[i] = i;
+  for (int i = 1; i <= n; i ++ ) p[i] = i;
 
-  int t, x, y, res = 0;
-  while (k--) {
+  int res = 0;
+  while (k -- ) {
+    int t, x, y;
     scanf("%d%d%d", &t, &x, &y);
-    if (x>n || y>n) res++;
+    if (x > n || y > n) res ++ ;
     else {
       int px = find(x), py = find(y);
       if (t == 1) { // x和y同类，(dx-dy)%3 == 0
         if (px == py) {
-          if ((d[x]-d[y]) % 3) res++;
+          if ((d[x] - d[y]) % 3) res ++ ;
         }
         else { // 合并并更新d：(d[x]+d[px]-dy)%3 == 0
           p[px] = py;
@@ -35,7 +36,7 @@ int main() { // 按照d[i]%3来判断谁吃谁；如果x,y在同一集合，且d
       }
       else { // x吃y, (dx-dy-1)%3 == 0
         if (px == py) {
-          if ((d[x]-1-d[y]) % 3) res++;
+          if ((d[x] - 1 - d[y]) % 3) res ++ ;
         }
         else { // (d[x)+d[px]-d[y]-1)%3 == 0
           p[px] = py;
@@ -46,6 +47,5 @@ int main() { // 按照d[i]%3来判断谁吃谁；如果x,y在同一集合，且d
   }
 
   cout << res << endl;
-
   return 0;
 }
