@@ -3,30 +3,30 @@
 #include <unordered_set>
 using namespace std;
 const int N = 110, M = 10010;
-int n, m, s[N], f[M];
+int n, k, s[N], f[M];
 
-int sg(int x) {
-  if (f[x] != -1) return f[x];
+int sg(int x) { // SG(x) = mex({SG(y1), SG(y2), …, SG(yk)})
+  if (f[x] != -1) return f[x]; // 记忆化搜索
 
-  unordered_set<int> S;
-  for (int i=0; i<m; i++) {
+  unordered_set<int> S; // 存所有x可以到的值
+  for (int i = 0; i < k; i ++ ) {
     int sum = s[i];
     if (x >= sum) S.insert(sg(x - sum));
   }
 
-  for (int i=0; ; i++)
+  for (int i = 0; ; i ++ ) // mex操作
     if (!S.count(i)) return f[x] = i;
 }
 
 int main() {
-  cin >> m;
-  for (int i=0; i<m; i++) cin >> s[i];
+  cin >> k;
+  for (int i = 0; i < k; i ++ ) cin >> s[i];
   cin >> n;
 
   memset(f, -1, sizeof f);
 
   int res = 0;
-  for (int i=0; i<n; i++) {
+  while (n -- ) {
     int x;
     cin >> x;
     res ^= sg(x);

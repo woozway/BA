@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
-typedef long long ll;
+typedef long long LL;
 const int N = 100010, mod = 1e9 + 7;
 
 // 这里的mod是质数，可用快速幂qmi求逆元，否则要用扩展欧几里得exgcd求逆元
 int qmi(int a, int k, int p) {
   int res = 1;
   while (k) {
-    if (k & 1) res = (ll)res * a % p;
-    a = (ll)a * a % p;
+    if (k & 1) res = (LL)res * a % p;
+    a = (LL)a * a % p;
     k >>= 1;
   }
   return res;
@@ -23,9 +23,9 @@ int main() {
 
   int a = n * 2, b = n;
   int res = 1;
-  for (int i = a; i > a-b; i--) res = (ll)res * i % mod;
-  for (int i = 1; i <= b; i++) res = (ll)res * qmi(i, mod-2, mod) % mod;
-  res = (ll)res * qmi(n+1, mod-2, mod) % mod;
+  for (int i = a; i > a - b; i -- ) res = (LL)res * i % mod;
+  for (int i = 1; i <= b; i ++ ) res = (LL)res * qmi(i, mod - 2, mod) % mod;
+  res = (LL)res * qmi(n + 1, mod - 2, mod) % mod;
 
   cout << res << endl;
   return 0;

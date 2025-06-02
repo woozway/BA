@@ -1,12 +1,12 @@
 #include <iostream>
 using namespace std;
-typedef long long ll;
+typedef long long LL;
 
-ll qmi(int a, int b, int p) {
-  ll res = 1 % p;
+LL qmi(int a, int b, int p) {
+  LL res = 1 % p;
   while (b) {
     if (b & 1) res = res * a % p;
-    a = a * (ll)a % p;
+    a = a * (LL)a % p;
     b >>= 1;
   }
   return res;
@@ -24,11 +24,11 @@ int main() {
   int n;
   cin >> n;
 
-  while (n--) {
+  while (n -- ) {
     int a, p;
     scanf("%d%d", &a, &p);
 
-    ll res = qmi(a, p-2, p);
+    LL res = qmi(a, p - 2, p);
     if (a % p) printf("%lld\n", res); // 因为m是质数，a,m互质的条件是a%m != 0，即a不是m的倍数
     else printf("impossible\n");
   }
