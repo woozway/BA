@@ -15,19 +15,19 @@ int main() {
   int n, m;
   cin >> n >> m;
 
-  int a;
-  for (int i = 1; i < n + 1; i ++ ) {
+  for (int i = 1; i <= n; i ++ ) {
+    int a;
     scanf("%d", &a); // 也可以额外开个a[]存原始读入值
     insert(i, i, a); // 构建初始差分数组b
   }
 
-  int l, r, c;
   while (m -- ) {
+    int l, r, c;
     scanf("%d%d%d", &l, &r, &c);
     insert(l, r, c);
   }
 
-  for (int i = 1; i < n + 1; i ++ ) {
+  for (int i = 1; i <= n; i ++ ) {
     b[i] += b[i - 1]; // 全部差分操作后的结果为b的前缀和
     printf("%d ", b[i]);
   }

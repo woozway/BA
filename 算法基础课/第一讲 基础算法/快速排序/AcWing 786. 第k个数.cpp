@@ -1,13 +1,11 @@
 #include <iostream>
 using namespace std;
-const int N = 1e6 + 10;
-int a[N], res;
+const int N = 100010;
+int n, k, a[N];
 
-void quick_select(int l, int r, int k) { // O(n)
-  if (l >= r) { // >=或==，因为这里保证区间内一定有数
-    res = a[l];
-    return;
-  }
+// O(n)，几何级数 n + n/2 + n/4 + n/8 + ... = 2n
+int quick_select(int l, int r, int k) {
+  if (l >= r) return a[l]; // >=或==，因为这里保证区间内一定有数
 
   int x = a[l + r >> 1];
   int i = l - 1, j = r + 1;
@@ -18,17 +16,15 @@ void quick_select(int l, int r, int k) { // O(n)
   }
 
   int sl = j - l + 1; // 得到[l~r]中<=x的个数sl，然后根据sl和k的关系继续在一半里找
-  if (sl >= k) quick_select(l, j, k);
-  else quick_select(j + 1, r, k - sl);
+  if (sl >= k) return quick_select(l, j, k);
+  else return quick_select(j + 1, r, k - sl);
 }
 
 int main() {
-  int n, k;
   cin >> n >> k;
-  for (int i = 0; i < n; i ++ ) scanf("%d", &a[i]);
+  for (int i = 1; i <= n; i ++ ) scanf("%d", &a[i]);
 
-  quick_select(0, n - 1, k);
+  cout << quick_select(1, n, k) << endl;
 
-  cout << res << endl;
   return 0;
 }

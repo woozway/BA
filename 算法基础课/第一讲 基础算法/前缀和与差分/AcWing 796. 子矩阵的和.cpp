@@ -7,8 +7,8 @@ int main() {
   int n, m, q;
   cin >> n >> m >> q;
 
-  for (int i = 1; i < n + 1; i ++ )
-    for (int j = 1; j < m + 1; j ++ ) {
+  for (int i = 1; i <= n; i ++ )
+    for (int j = 1; j <= m; j ++ ) {
       scanf("%d", &s[i][j]); // 也可以使用额外一个a[][]先存下数据
       s[i][j] += s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1];
     }

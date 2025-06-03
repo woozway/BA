@@ -28,7 +28,7 @@ int main() {
   vector<int> A, B; // 由低到高倒着存，方便加减运算
   // for (int i = a.size() - 1; i >= 0; i -- ) A.push_back(a[i] - '0');
   // for (int i = b.size() - 1; i >= 0; i -- ) B.push_back(b[i] - '0');
-  for (int i = a.size() - 1, s = 0, j = 0, t = 1; i >= 0; i -- ) {
+  for (int i = a.size() - 1, s = 0, j = 0, t = 1; ~i; i -- ) {
     // A.push_back(a[i] - '0');
     s += (a[i] - '0') * t;
     j ++, t *= 10;
@@ -38,7 +38,7 @@ int main() {
       t = 1;
     }
   }
-  for (int i = b.size() - 1, s = 0, j = 0, t = 1; i >= 0; i -- ) {
+  for (int i = b.size() - 1, s = 0, j = 0, t = 1; ~i; i -- ) {
     // B.push_back(b[i] - '0');
     s += (b[i] - '0') * t;
     j ++, t *= 10;
@@ -53,7 +53,7 @@ int main() {
 
   // for (int i = C.size() - 1; i >= 0; i -- ) printf("%d", C[i]);
   cout << C.back(); // 第一个数不需要最高位补零
-  for (int i = C.size() - 2; i >= 0; i -- ) printf("%09d", C[i]);
+  for (int i = C.size() - 2; ~i; i -- ) printf("%09d", C[i]);
   cout << endl;
 
   return 0;

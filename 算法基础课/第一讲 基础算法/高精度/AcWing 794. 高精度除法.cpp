@@ -13,8 +13,8 @@ vector<int> div(vector<int> &A, int b, int &r) { // 大整数A>=0，整数b>0
   }
 
   reverse(C.begin(), C.end()); // 为保持和加减乘一致，这里翻转一下
-
   while (C.size() > 1 && C.back() == 0) C.pop_back();
+
   return C;
 }
 
@@ -26,7 +26,7 @@ int main() {
   vector<int> A;
   for (int i = a.size() - 1; i >= 0; i -- ) A.push_back(a[i] - '0');
 
-  int r = 0;
+  int r;
   auto C = div(A, b, r);
 
   for (int i = C.size() - 1; i >= 0; i -- ) printf("%d", C[i]);

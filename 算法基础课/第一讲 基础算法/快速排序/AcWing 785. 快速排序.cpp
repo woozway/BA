@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-const int N = 1e6 + 10;
+const int N = 1e5 + 10;
 int a[N];
 
 void quick_sort(int l, int r) { // 根据pivot将所有元素分成左右两拨，然后递归左右
@@ -14,7 +14,7 @@ void quick_sort(int l, int r) { // 根据pivot将所有元素分成左右两拨�
     if (i < j) swap(a[i], a[j]);
   }
 
-  quick_sort(l, j); // a[l~j]都<=x
+  quick_sort(l, j); // a[l~j]都<=x，这里选j不选i-1是因为[1 2]这种case会死循环
   quick_sort(j + 1, r); // a[j+1~r]都>=x
 }
 

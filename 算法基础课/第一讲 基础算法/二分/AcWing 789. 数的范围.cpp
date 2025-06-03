@@ -12,17 +12,19 @@ int main() {
     int k;
     cin >> k;
 
+    // (...), (k, ...)分成两部分，前半<k，后半>=k
     int l = 0, r = n - 1;
     while (l < r) {
       int mid = l + r >> 1;
-      if (a[mid] >= k) r = mid;
-      else l = mid + 1;
+      if (a[mid] < k) l = mid + 1;
+      else r = mid;
     }
 
     if (a[l] != k) puts("-1 -1");
     else {
       cout << l << ' ';
 
+      // (..., k), (...)分成两部分，前半<=k，后半>k
       l = 0, r = n - 1;
       while (l < r) {
         int mid = l + r + 1 >> 1;
