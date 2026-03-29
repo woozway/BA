@@ -1,13 +1,12 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 const int N = 1e5 + 10, M = N * 2, INF = 0x3f3f3f3f;
 int n, m;
 int p[N];
 struct Edge {
   int a, b, w;
-  bool operator< (const Edge &E)const {
-    return w < E.w;
+  bool operator< (const Edge &e) const {
+    return w < e.w;
   }
 } edges[M];
 
@@ -16,7 +15,8 @@ int find(int x) {
   return p[x];
 }
 
-int kruskal() { // O(mlogn)，适合稀疏图；和bf算法一样也只要存edge
+// 关注“边”：按边权从小到大依次考虑每条边，只要加入该边不形成环，就将其纳入MST
+int kruskal() { // O(mlgn) 适合稀疏图；和bf算法一样也只要存edge
   sort(edges, edges + m);
 
   for (int i = 1; i <= n; i ++ ) p[i] = i;
@@ -33,7 +33,7 @@ int kruskal() { // O(mlogn)，适合稀疏图；和bf算法一样也只要存edg
     }
   }
 
-  if (cnt < n - 1) return INF;
+  if (cnt != n - 1) return INF; // 不到n-1条边，无法成MST
   return res;
 }
 

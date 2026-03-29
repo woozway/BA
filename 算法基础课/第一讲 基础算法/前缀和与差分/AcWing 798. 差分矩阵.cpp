@@ -1,28 +1,27 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 const int N = 1010;
-int d[N][N]; // d[x][y]覆盖以x,y为左上角的矩阵中所有元素
+int n, m, q, d[N][N]; // d[x][y]覆盖以x,y为左上角的矩阵中所有元素
 
 void insert(int x1, int y1, int x2, int y2, int c) {
-  d[x1][y1] += c;
+  d[x1][y1] += c; // 类比扫雷
   d[x1][y2 + 1] -= c;
   d[x2 + 1][y1] -= c;
   d[x2 + 1][y2 + 1] += c;
 }
 
 int main() {
-  int n, m, q;
   cin >> n >> m >> q;
 
+  int a;
   for (int i = 1; i <= n; i ++ )
     for (int j = 1; j <= m; j ++ ) {
-      int a;
       scanf("%d", &a); // 也可以额外开个a[][]存原始读入值
       insert(i, j, i, j, a);
     }
 
+  int x1, y1, x2, y2, c;
   while (q -- ) {
-    int x1, y1, x2, y2, c;
     scanf("%d%d%d%d%d", &x1, &y1, &x2, &y2, &c);
     insert(x1, y1, x2, y2, c);
   }

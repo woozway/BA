@@ -1,8 +1,12 @@
 #include <iostream>
 using namespace std;
-const int N = 1e5 + 10, M = 31 * N;
+const int N = 1e5 + 10, M = N * 31;
 int son[M][2], idx;
+int n;
 
+// trie[a][b]：a表示节点编号（和最多有多少个节点有关），b表示分叉
+// 这里只根据0/1分叉，所以b=2；而因为有N个数，每个数需要31位，
+// 假设这些数各自都没有公共前缀，那么上限会有N*31个节点，即a=N*31
 void insert(int x) {
   int p = 0;
   for (int i = 30; i >= 0; i -- ) {
@@ -23,13 +27,13 @@ int query(int x) {
 }
 
 int main() { // 可引申为trie存汉字等应用
-  int n;
   cin >> n;
 
-  int a, res = 0;
+  int res = 0;
   for (int i = 0; i < n; i ++ ) {
+    int a;
     scanf("%d", &a); // 直接在线处理
-    insert(a); // 这里为防止处理第一个元素插入式特判，改变顺序为先插入再查询，效果不变
+    insert(a); // 这里为插入第一个元素时不特判，改变顺序为先插入再查询，效果不变
     res = max(res, query(a));
   }
 

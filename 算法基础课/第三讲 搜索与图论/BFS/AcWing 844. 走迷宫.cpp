@@ -1,16 +1,13 @@
-#include <iostream>
-#include <cstring>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
 typedef pair<int, int> PII;
 const int N = 110;
+int g[N][N], d[N][N]; // 本来需要一个st[N][N]记录某个坐标是否访问过，这里正好算距离，用d代替
 int n, m;
-int g[N][N], d[N][N];
 
 void bfs() {
   queue<PII> q;
-
-  memset(d, -1, sizeof d);
+  memset(d, -1, sizeof d); // 但要初始化为-1，不然以为d[1][1]=0，会重复访问
   d[1][1] = 0;
   q.push({1, 1});
 

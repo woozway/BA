@@ -2,7 +2,7 @@
 using namespace std;
 typedef long long LL;
 const int N = 1e5 + 10;
-int a[N], tmp[N];
+int n, a[N], tmp[N];
 
 LL merge_sort(int l, int r) {
   if (l >= r) return 0;
@@ -21,7 +21,6 @@ LL merge_sort(int l, int r) {
 }
 
 int main() {
-  int n;
   cin >> n;
   for (int i = 0; i < n; i ++ ) scanf("%d", &a[i]);
 

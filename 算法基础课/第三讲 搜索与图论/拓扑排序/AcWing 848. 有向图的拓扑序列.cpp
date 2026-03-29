@@ -3,7 +3,8 @@ using namespace std;
 const int N = 1e5 + 10;
 int h[N], e[N], ne[N], idx = 1;
 int q[N], hh, tt = -1;
-int n, m, d[N]; // d[]存每一个节点的入度
+int d[N]; // d[]存每一个节点的入度
+int n, m;
 
 void add(int a, int b) {
   e[idx] = b, ne[idx] = h[a], h[a] = idx ++ ;
@@ -33,8 +34,8 @@ int main() {
 
   topsort();
 
-  if (tt != n - 1) cout << -1 << endl; // 如果每个节点都入队过，那么存在拓扑序，即入队的顺序
-  else {
+  if (tt != n - 1) cout << -1 << endl;
+  else { // 如果每个节点都入队过，那么存在拓扑序，即入队的顺序
     for (int i = 0; i < n; i ++ ) printf("%d ", q[i]);
     puts("");
   }

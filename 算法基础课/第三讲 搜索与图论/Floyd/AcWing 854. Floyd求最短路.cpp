@@ -1,10 +1,11 @@
 #include <iostream>
 using namespace std;
 const int N = 210, INF = 0x3f3f3f3f;
-int n, m, k;
 int d[N][N];
+int n, m, k;
 
-void floyd() { // 多源汇问题floyd：可以处理负权边，无法处理负环
+// d[k][i][j] 表示“只允许经过节点 1~k 作为中间过渡点时，从 i 到 j 的最短距离”
+void floyd() { // O(n^3) 多源汇问题floyd：可处理负权边，无法处理负环
   for (int k = 1; k <= n; k ++ )
     for (int i = 1; i <= n; i ++ )
       for (int j = 1; j <= n; j ++ )
@@ -30,7 +31,7 @@ int main() {
   while (k -- ) {
     int x, y;
     scanf("%d%d", &x, &y);
-    if (d[x][y] > INF / 2) puts("impossible"); // 和bellman_ford算法一样，INF可能互相有一些数值差异
+    if (d[x][y] > INF / 2) puts("impossible"); // 和bellman_ford一样，无脑更新时INF可能互相有些小的数值差异
     else printf("%d\n", d[x][y]);
   }
   return 0;

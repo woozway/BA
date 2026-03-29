@@ -3,7 +3,13 @@ using namespace std;
 const int N = 1e5 + 10;
 int h[N], ph[N], hp[N], cnt; // ph[k]：第k个插入数在h中的下标，hp[k]：h中下标k的数对应之前第几个插入
 
-void heap_swap(int a, int b) { // 交换堆中a和b两个位置的数及其索引
+/*        /\                  /\
+ *  ph[a]/  \           ph[b]/  \
+ *     \/    \ ph[b]       \/    \ ph[a]
+ *     /hp[a] \/   ====>   /hp[b] \/
+ *    /   hp[b]\          /   hp[a]\
+ */
+void heap_swap(int a, int b) { // 交换堆中a和b两个位置的数及其hp,ph索引（这里参数a,b是下标）
   swap(ph[hp[a]], ph[hp[b]]);
   swap(hp[a], hp[b]);
   swap(h[a], h[b]);
@@ -27,18 +33,18 @@ void up(int u) {
 }
 
 int main() {
-  cin.tie(0)->sync_with_stdio(0);
-  int n;
-  cin >> n;
+  int n, idx = 0;
 
-  string op;
-  int k, x, idx = 0;
+  cin >> n;
   while (n -- ) {
+    string op;
+    int k, x;
+
     cin >> op;
     if (op == "I") {
       cin >> x;
-      cnt ++ ;
-      idx ++ ; // 记录当前是第几个插入的数，不能复用cnt
+      idx ++ ; // 记录当前是第几个插入的数（不能复用cnt）
+      cnt ++ ; // 因为cnt是动态变的，而idx一旦确定后是不变的
       ph[idx] = cnt, hp[cnt] = idx;
       h[cnt] = x, up(cnt); // 连续动作
     }

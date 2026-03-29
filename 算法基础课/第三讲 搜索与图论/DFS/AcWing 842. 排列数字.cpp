@@ -4,7 +4,7 @@ const int N = 10;
 int n, path[N];
 bool st[N]; // 存state：即当前数字是否被使用过
 
-void dfs(int u) {
+void dfs(int u) { // O(n!), 为当前u下标位置放置数字
   if (u == n) {
     for (int i = 0; i < n; i ++ ) printf("%d ", path[i]);
     puts("");

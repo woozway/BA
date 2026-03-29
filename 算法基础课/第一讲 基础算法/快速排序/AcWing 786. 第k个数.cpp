@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-const int N = 100010;
+const int N = 1e5 + 10;
 int n, k, a[N];
 
 // O(n)，几何级数 n + n/2 + n/4 + n/8 + ... = 2n
@@ -25,6 +25,5 @@ int main() {
   for (int i = 1; i <= n; i ++ ) scanf("%d", &a[i]);
 
   cout << quick_select(1, n, k) << endl;
-
   return 0;
 }

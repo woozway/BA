@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 bool cmp(vector<int> &A, vector<int> &B) { // 判断A<B是否成立
@@ -7,7 +6,6 @@ bool cmp(vector<int> &A, vector<int> &B) { // 判断A<B是否成立
 
   for (int i = A.size() - 1; i >= 0; i -- ) // 从高位往低位推进
     if (A[i] != B[i]) return A[i] < B[i];
-
   return false;
 }
 

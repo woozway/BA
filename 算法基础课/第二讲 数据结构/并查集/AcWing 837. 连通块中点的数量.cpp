@@ -2,6 +2,7 @@
 using namespace std;
 const int N = 1e5 + 10;
 int p[N], cnt[N]; // cnt[i]表示i所归属的集合size
+int n, m;
 
 int find(int x) {
   if (p[x] != x) p[x] = find(p[x]);
@@ -9,21 +10,19 @@ int find(int x) {
 }
 
 int main() {
-  int n, m;
   cin >> n >> m;
-  for (int i = 1; i <= n; i ++ ) {
-    p[i] = i;
-    cnt[i] = 1;
-  }
+  for (int i = 1; i <= n; i ++ )
+    p[i] = i, cnt[i] = 1;
 
-  string op;
-  int a, b;
   while (m -- ) {
+    string op;
+    int a, b;
+
     cin >> op;
     if (op == "C") {
       cin >> a >> b;
       a = find(a), b = find(b);
-      if (a != b) {
+      if (a != b) { // 当不在同一个集合里面才更新cnt
         p[a] = b;
         cnt[b] += cnt[a];
       }

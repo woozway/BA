@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 vector<int> mul(vector<int> &A, int b) { // 高精度大整数A>=0，整数b>=0
@@ -9,7 +8,6 @@ vector<int> mul(vector<int> &A, int b) { // 高精度大整数A>=0，整数b>=0
     C.push_back(t % 10);
     t /= 10;
   }
-
   while (C.size() > 1 && C.back() == 0) C.pop_back();
   return C;
 }
@@ -42,6 +40,5 @@ int main() {
 
   for (int i = C.size() - 1; i >= 0; i -- ) printf("%d", C[i]);
   cout << endl;
-
   return 0;
 }

@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 const int N = 1e5 + 10;
-int a[N];
+int n, a[N];
 
 void quick_sort(int l, int r) { // 根据pivot将所有元素分成左右两拨，然后递归左右
   if (l >= r) return; // >=，因为快排中区间内可能没有数
@@ -19,7 +19,6 @@ void quick_sort(int l, int r) { // 根据pivot将所有元素分成左右两拨�
 }
 
 int main() {
-  int n;
   cin >> n;
   for (int i = 0; i < n; i ++ ) scanf("%d", &a[i]);
 

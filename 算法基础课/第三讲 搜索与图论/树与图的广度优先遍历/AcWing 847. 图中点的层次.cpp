@@ -1,17 +1,16 @@
-#include <iostream>
-#include <cstring>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
 const int N = 1e5 + 10;
 int h[N], e[N], ne[N], idx = 1;
-int d[N];
+int d[N]; // d[i]表示从1到i的最短距离，初始化为不可达-1
+int n, m;
 
 void add(int a , int b) {
   e[idx] = b, ne[idx] = h[a], h[a] = idx ++ ;
 }
 
 void bfs() {
-  memset(d, -1, sizeof d);
+  memset(d, -1, sizeof d); // 因为起始点d[1]=0，所以0不能作为未初始化标识
   queue<int> q;
 
   d[1] = 0;
@@ -30,7 +29,6 @@ void bfs() {
 }
 
 int main() {
-  int n, m;
   cin >> n >> m;
   while (m -- ) {
     int a, b;

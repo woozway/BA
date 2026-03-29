@@ -1,18 +1,18 @@
 #include <iostream>
 using namespace std;
-const int N = 100010;
+const int N = 1e5 + 10;
 int stk[N], tt; // tt栈顶指针，=0表示空
 
 int main() {
-  int m;
-  cin >> m;
+  int n;
+  cin >> n;
 
-  while (m -- ) {
+  while (n -- ) {
     string op;
     int x;
-    
+
     cin >> op;
-    if (op == "push") cin >> x, stk[ ++ tt] = x;
+    if (op == "push") cin >> x, stk[ ++ tt] = x; // 这里++放在tt前是为了保证tt总指向栈顶
     else if (op == "pop") tt -- ;
     else if (op == "empty") cout << (tt ? "NO" : "YES") << endl;
     else cout << stk[tt] << endl;

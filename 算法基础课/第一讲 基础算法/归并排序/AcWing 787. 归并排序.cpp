@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 const int N = 1e5 + 10;
-int a[N];
-int tmp[N]; // tmp用作临时中转
+int n, a[N], tmp[N]; // tmp用作临时中转
 
 void merge_sort(int l, int r) { // 递归处理左右使之有序，然后合并
   if (l >= r) return;
@@ -19,7 +18,6 @@ void merge_sort(int l, int r) { // 递归处理左右使之有序，然后合并
 }
 
 int main() {
-  int n;
   cin >> n;
   for (int i = 0; i < n; i ++ ) scanf("%d", &a[i]);
 

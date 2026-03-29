@@ -1,10 +1,9 @@
 #include <iostream>
 using namespace std;
 const int N = 1e5 + 10;
-int s[N];
+int n, m, s[N];
 
 int main() {
-  int n, m;
   cin >> n >> m;
 
   for (int i = 1; i <= n; i ++ ) { // 为不处理边界，s从1开始

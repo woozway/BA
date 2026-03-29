@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 vector<int> div(vector<int> &A, int b, int &r) { // 大整数A>=0，整数b>0
@@ -14,7 +12,6 @@ vector<int> div(vector<int> &A, int b, int &r) { // 大整数A>=0，整数b>0
 
   reverse(C.begin(), C.end()); // 为保持和加减乘一致，这里翻转一下
   while (C.size() > 1 && C.back() == 0) C.pop_back();
-
   return C;
 }
 
@@ -31,6 +28,5 @@ int main() {
 
   for (int i = C.size() - 1; i >= 0; i -- ) printf("%d", C[i]);
   cout << endl << r << endl;
-
   return 0;
 }
