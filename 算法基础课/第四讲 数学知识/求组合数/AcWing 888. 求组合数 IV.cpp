@@ -1,11 +1,10 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 const int N = 5010;
-int sum[N], primes[N], cnt;
+int sum[N], primes[N], cnt; // sum[i] 表示 primes[i] 这个质数的个数
 bool st[N];
 
-void get_primes(int n) {
+void get_primes(int n) { // 欧拉筛
   for (int i = 2; i <= n; i ++ ) {
     if (!st[i]) primes[cnt ++ ] = i;
     for (int j = 0; primes[j] <= n / i; j ++ ) {
@@ -15,7 +14,9 @@ void get_primes(int n) {
   }
 }
 
-int get(int n, int p) { // 获取n!中出现p的次数
+// 勒让德定理（Legendre's Formula）：获取在 n! 的质因数分解中，质数 p 的指数是多少
+// E_p(n!) = [n/p] + [n/p^2] + [n/p^3] + ...
+int get(int n, int p) {
   int res = 0;
   while (n) {
     res += n / p;
@@ -24,7 +25,7 @@ int get(int n, int p) { // 获取n!中出现p的次数
   return res;
 }
 
-vector<int> mul(vector<int> &a, int b) {
+vector<int> mul(vector<int> &a, int b) { // 高精度大数 * int范围内的小数
   vector<int> c;
   int t = 0;
   for (int i = 0; i < a.size() || t; i ++ ) {
@@ -36,6 +37,7 @@ vector<int> mul(vector<int> &a, int b) {
   return c;
 }
 
+// 质因数分解 + 高精度：彻底规避除法，适合 1 <= b <= a <= 5000，不取模的精确长整数
 // c(a,b) = a!/[b! * (a-b)!], 在分子&分母上分解质因子，然后高精度乘
 int main() {
   int a, b;

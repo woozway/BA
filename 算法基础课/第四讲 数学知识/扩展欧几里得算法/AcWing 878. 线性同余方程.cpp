@@ -12,6 +12,7 @@ int exgcd(int a, int b, int &x, int &y) {
   return d;
 }
 
+// 求解线性同余方程（Linear Congruence Equation）要求找到一个整数 x，使得：a*x % m = b
 int main() {
   int n;
   cin >> n;

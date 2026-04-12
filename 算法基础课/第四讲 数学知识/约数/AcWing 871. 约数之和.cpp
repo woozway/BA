@@ -1,11 +1,10 @@
-#include <iostream>
-#include <unordered_map>
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long LL;
 const int mod = 1e9 + 7;
 unordered_map<int, int> primes;
 
-// N=(p1^a1)*(p1^a2)*...*(pk^ak), 约数之和=(p1^0+...+p1^a1)+...+(pk^0+...+pk^ak
+// N=(p1^a1)*(p1^a2)*...*(pk^ak), 约数之和=(p1^0+...+p1^a1)*...*(pk^0+...+pk^ak)
 int main() {
   int n;
   cin >> n;

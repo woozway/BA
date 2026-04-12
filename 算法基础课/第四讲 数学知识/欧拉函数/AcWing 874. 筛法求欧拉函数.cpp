@@ -2,12 +2,13 @@
 using namespace std;
 typedef long long LL;
 const int N = 1e6 + 10;
-int phi[N];
 int primes[N], cnt;
 bool st[N];
+int phi[N];
+int n;
 
 void get_eulers(int x) {
-  phi[1] = 1;
+  phi[1] = 1; // 不要忽略1
   for (int i = 2; i <= x; i ++ ) {
     if (!st[i]) {
       primes[cnt ++ ] = i;
@@ -19,7 +20,7 @@ void get_eulers(int x) {
       st[t] = true;
 
       if (i % primes[j] == 0) { // 记pj=primes[j], 若pj是i的质因子
-        phi[t] = phi[i] * primes[j]; // 则phi[pj*i] = (pj*i)*(1-1/p1)*..*(1-1/pk) = pj*phi(i)
+        phi[t] = phi[i] * primes[j]; // 则phi[pj*i] = (pj*i)*(1-1/p1)*..*(1-1/pk) = phi(i)*pj
         break;
       }
       phi[t] = phi[i] * (primes[j] - 1); // 否则phi(pj*i) = (pj*i)*(1-1/p1)*..*(1-1/pk)*(1-1/pj) = phi(i)*pj*(1-1/pj)
@@ -28,7 +29,6 @@ void get_eulers(int x) {
 }
 
 int main() {
-  int n;
   cin >> n;
 
   get_eulers(n);
@@ -36,5 +36,6 @@ int main() {
   LL res = 0;
   for (int i = 1; i <= n; i ++ ) res += phi[i];
   cout << res << endl;
+
   return 0;
 }

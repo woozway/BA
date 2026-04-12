@@ -1,7 +1,9 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-// 在求gcd(a,b)的同时，找出一组解x,y满足：a*x + b*y = gcd(a,b)
+// 裴蜀等式（Bézout's Identity）对于任意整数a, b，必然存在整数x, y，
+// 使得：a*x + b*y = gcd(a,b)，x 和 y 被称为裴蜀系数
+// exgcd 函数的任务就是在辗转相除求 gcd(a, b) 的同时，求出这两个系数
 int exgcd(int a, int b, int &x, int &y) {
   if (!b) {
     x = 1, y = 0; // a*1 + b*0 = a

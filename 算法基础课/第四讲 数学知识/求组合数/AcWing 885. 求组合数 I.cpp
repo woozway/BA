@@ -2,7 +2,9 @@
 using namespace std;
 const int N = 2010, mod = 1e9 + 7;
 int c[N][N];
+int n;
 
+// 预处理递推，适用数据范围：1 <= n <= 1e4, 1 <= b <= a <= 2e3
 void init() { // O(N^2)
   for (int i = 0; i < N; i ++ )
     for (int j = 0; j <= i; j ++ )
@@ -15,8 +17,7 @@ void init() { // O(N^2)
 int main() {
   init();
 
-  int n;
-  scanf("%d", &n);
+  cin >> n;
   while (n -- ) {
     int a, b;
     scanf("%d%d", &a, &b);

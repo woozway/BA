@@ -3,10 +3,10 @@ using namespace std;
 const int N = 1e6 + 10;
 int n;
 int primes[N], cnt;
-bool st[N];
+bool st[N]; // st[i]=true表示i是合数
 
 void get_primes() { // 1~n中有n/ln(n)个质数
-  // // 1. O(nloglogn) 埃式筛，删掉质数的倍数（有些合数会重复筛）
+  // // 1. O(nlglgn) 埃式筛：删掉质数的倍数（有些合数会重复筛）
   // for (int i = 2; i <= n; i ++ ) {
   //   if (st[i]) continue;
   //   primes[cnt ++ ] = i;

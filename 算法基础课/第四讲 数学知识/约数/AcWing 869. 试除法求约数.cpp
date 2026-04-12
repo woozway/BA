@@ -1,5 +1,4 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 vector<int> get_divisors(int x) {
@@ -22,7 +21,7 @@ int main() {
     int a;
     cin >> a;
     auto res = get_divisors(a);
-    for (auto t: res) cout << t << ' ';
+    for (auto t : res) cout << t << ' ';
     cout << endl;
   }
   return 0;

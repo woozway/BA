@@ -1,10 +1,9 @@
-#include <iostream>
-#include <cmath>
+#include <bits/stdc++.h>
 using namespace std;
 const int N = 110;
 const double eps = 1e-8;
 int n;
-double a[N][N];
+double a[N][N]; // 增广矩阵 a[n][n + 1]
 
 int gauss() { // 高斯消元，答案存于a[i][n]中，0<=i<n
   int c, r;
@@ -14,10 +13,10 @@ int gauss() { // 高斯消元，答案存于a[i][n]中，0<=i<n
       if (fabs(a[i][c]) > fabs(a[t][c]))
         t = i;
 
-    if (fabs(a[t][c]) < eps) continue;
+    if (fabs(a[t][c]) < eps) continue; // 当前列全0，跳过
 
-    for (int j = c; j <= n; j ++ ) swap(a[t][j], a[r][j]); // 将绝对值最大的行换到最顶端
-    for (int j = n; j >= c; j -- ) a[r][j] /= a[r][c]; // 将当前行的首位变成1
+    for (int i = c; i <= n; i ++ ) swap(a[t][i], a[r][i]); // 将绝对值最大的行换到最顶端
+    for (int i = n; i >= c; i -- ) a[r][i] /= a[r][c]; // 将当前行的首位变成1
     for (int i = r + 1; i < n; i ++ ) // 用当前行将下面所有的列消成0
       if (fabs(a[i][c]) > eps)
         for (int j = n; j >= c; j -- )
@@ -32,6 +31,10 @@ int gauss() { // 高斯消元，答案存于a[i][n]中，0<=i<n
     return 1; // 有无穷多组解
   }
 
+  // for (int i = n - 1; i >= 0; i -- )
+  //   for (int j = n; j >= i + 1; j -- )
+  //     for (int k = i + 1; k < n; k ++ )
+  //       a[i][j] -= a[k][j] * a[i][k];
   for (int i = n - 1; i >= 0; i -- )
     for (int j = i + 1; j < n; j ++ )
       a[i][n] -= a[i][j] * a[j][n];
