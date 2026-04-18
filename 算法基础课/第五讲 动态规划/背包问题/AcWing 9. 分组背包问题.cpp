@@ -4,6 +4,7 @@ const int N = 110;
 int v[N][N], w[N][N], s[N];
 // int f[N][N];
 int f[N];
+int n, m;
 
 //                        / 集合：前i组物品中选，且总体积不超过j的所有选法
 //        / 状态表示f[i,j]
@@ -12,9 +13,7 @@ int f[N];
 //          状态计算：集合的划分（第i组中）
 //                                    \ 选第i组中第k个 f[i-1,j-v[i,k]] + w[i,k]
 int main() {
-  int n, m;
   cin >> n >> m;
-
   for (int i = 1; i <= n; i ++ ) {
     cin >> s[i];
     for (int j = 1; j <= s[i]; j ++ )

@@ -5,6 +5,8 @@ int n;
 int a[N][N];
 int f[N][N];
 
+// 1. 状态表示f[i,j]：到达i,j位置的路径和；属性：Max
+// 2. 状态计算：集合划分按经过下方哪个位置：f[i,j] = max(f[i-1,j-1], f[i-1,j]) + a[i,j]
 int main() {
   cin >> n;
   for (int i = 1; i <= n; i ++ )

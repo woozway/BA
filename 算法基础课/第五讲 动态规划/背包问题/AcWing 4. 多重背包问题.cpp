@@ -3,13 +3,13 @@ using namespace std;
 const int N = 110;
 int v[N], w[N], s[N];
 int f[N][N];
+int n, m;
 
+// f[i,j]：前i个物品且总体积不超过j的所有选法
 // 因为每种物品数量有限制，所有不能和完全背包一样计算
 // f[i,j] = max(f[i-1,j], f[i-1,j-vi] + wi)不可行
 int main() {
-  int n, m;
   cin >> n >> m;
-
   for (int i = 1; i <= n; i ++ ) cin >> v[i] >> w[i] >> s[i];
 
   for (int i = 1; i <= n; i ++ )

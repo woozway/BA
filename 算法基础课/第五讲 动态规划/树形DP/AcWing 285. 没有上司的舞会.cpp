@@ -1,10 +1,8 @@
-#include <cstring>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 const int N = 6010;
 int h[N], e[N], ne[N], idx = 1;
-int happy[N];
-int f[N][2];
+int n, happy[N], f[N][2];
 bool has_fa[N];
 
 void add(int a, int b) {
@@ -26,7 +24,6 @@ void dfs(int u) {
 }
 
 int main() {
-  int n;
   cin >> n;
   for (int i = 1; i <= n; i ++ ) scanf("%d", &happy[i]);
 
@@ -37,7 +34,7 @@ int main() {
     has_fa[a] = true;
   }
 
-  int root = 1;
+  int root = 1; // 找到根节点
   while (has_fa[root]) root ++ ;
 
   dfs(root);
